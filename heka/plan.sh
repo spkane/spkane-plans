@@ -11,6 +11,9 @@ pkg_filename="${pkg_name}_${pkg_version}.tar.gz"
 pkg_deps=(core/glibc core/ncurses core/readline)
 pkg_build_deps=(spkane/geoip core/cacerts core/readline core/pkg-config core/ncurses core/cmake core/make core/gcc core/git core/patch core/glibc core/go)
 
+pkg_svc_run="/usr/local/bin/hekad -config=\"$pkg_svc_config_path/hekad.toml\""
+pkg_expose=(4352)
+
 ## Building Golang Apps in Habitat:
 ##  - Include 'core/go' as a build_dep
 ##  - Use 'go build -o xxx' in the source directory,

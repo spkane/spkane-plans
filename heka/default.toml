@@ -1,0 +1,8 @@
+maxprocs = 4
+
+dashboard_port = 4352
+dashboard_ticker_interval = 15
+
+logs_dir = "/var/log"
+logs_file_match = "auth\\.log"
+

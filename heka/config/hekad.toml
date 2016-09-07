@@ -1,0 +1,19 @@
+[hekad]
+maxprocs = {{maxprocs}}
+
+# Heka dashboard for internal metrics and time series graphs
+[Dashboard]
+type = "DashboardOutput"
+address = ":{{dashboard_port}}"
+ticker_interval = {{dashboard_ticker_interval}}
+
+[LogstreamerInput]
+log_directory = "{{dashboard_ticker_interval}}"
+file_match = '{{logs_file_match}}'
+
+[PayloadEncoder]
+append_newlines = false
+
+[LogOutput]
+message_matcher = "TRUE"
+encoder = "PayloadEncoder"

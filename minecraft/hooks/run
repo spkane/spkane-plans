@@ -1,0 +1,12 @@
+#!/bin/sh
+
+export JAVA_HOME=$(hab pkg path core/server-jre)
+export APP_HOME=$(hab pkg path spkane/minecraft_server)
+
+cp {{pkg.svc_config_path}}/eula.txt {{pkg.svc_data_path}}
+cd {{pkg.svc_data_path}}
+
+echo "DATA DIR={{pkg.svc_data_path}}"
+
+${JAVA_HOME}/bin/java -Xms{{cfg.java_xms}} -Xmx{{cfg.java_xmx}} -jar ${APP_HOME}/minecraft_server.jar nogui
+
