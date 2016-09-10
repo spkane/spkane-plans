@@ -26,4 +26,8 @@ mkdir -p ${HOME}/mc/data
 # the Minecraft EULA (https://account.mojang.com/documents/minecraft_eula).
 
 docker run -e HAB_MINECRAFT_SERVER='accept_eula=true' -p 25565:25565 -v ${HOME}/mc/data:/hab/svc/minecraft_server/data spkane/minecraft_server
+
+# OR copy and edit the default.toml and try this...
+
+docker run -e HAB_MINECRAFT_SERVER="$(cat ~/habitat/minecraft_server.toml)" -p 25565:25565 -v ${HOME}/mc/data:/hab/svc/minecraft_server/data spkane/minecraft_server
 ```

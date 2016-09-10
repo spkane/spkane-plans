@@ -1,0 +1,8 @@
+#!/bin/bash
+
+export APP_HOME=$(hab pkg path spkane/minecraft_server)
+
+cp {{pkg.svc_config_path}}/server.properties {{pkg.svc_data_path}}
+
+echo "${APP_HOME}/ops.sh {{#each cfg.ops.usernames}}{{this}} {{/each}}"
+${APP_HOME}/ops.sh {{#each cfg.ops.usernames}}{{this}} {{/each}} > {{pkg.svc_data_path}}/ops.json
