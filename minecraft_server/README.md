@@ -2,6 +2,13 @@
 
 This is a vanilla Minecraft server [https://minecraft.net/](https://minecraft.net/).
 
+## Download
+
+Habitat Plan: [https://github.com/spkane/spkane-plans/tree/master/minecraft_server](https://github.com/spkane/spkane-plans/tree/master/minecraft_server)
+
+Docker Container: 
+[https://hub.docker.com/r/spkane/minecraft/](https://hub.docker.com/r/spkane/minecraft/)
+
 ## Building
 
 ```

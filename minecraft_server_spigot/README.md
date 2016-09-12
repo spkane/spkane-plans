@@ -2,6 +2,13 @@
 
 This is a Minecraft Spigot server [http://spigotmc.org/](http://spigotmc.org/).
 
+## Download
+
+Habitat Plan: [https://github.com/spkane/spkane-plans/tree/master/minecraft_server_spigot](https://github.com/spkane/spkane-plans/tree/master/minecraft_server_spigot)
+
+Docker Container:
+[https://hub.docker.com/r/spkane/minecraft/](https://hub.docker.com/r/spkane/minecraft/)
+
 ## Building
 
 ```
