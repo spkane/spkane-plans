@@ -1,4 +1,6 @@
-#Minecraft
+# Minecraft Server Vanilla
+
+This is a vanilla Minecraft server (https://minecraft.net/).
 
 
 ```
