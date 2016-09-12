@@ -28,7 +28,7 @@ hab start spkane/minecraft_server_spigot
 # DATA DIR=/hab/svc/minecraft_server_spigot/data
 
 # By changing the setting below to true you are indicating your agreement to
-# the Minecraft EULA (https://account.mojang.com/documents/minecraft_eula).
+# the Minecraft EULA [https://account.mojang.com/documents/minecraft_eula](https://account.mojang.com/documents/minecraft_eula).
 
 echo 'accept_eula = true' | hab config apply --peer 172.17.0.2 minecraft_server_spigot.default 2
 ```
@@ -47,9 +47,16 @@ docker run -e HAB_MINECRAFT_SERVER_SPIGOT="$(cat ~/habitat/minecraft_server_spig
 
 You data location can vary, but based on the Docker example above, it would be in ```${HOME}/mc/data```. If you are not using a container, the data will be in ```/hab/svc/minecraft_server_spigot/data```.
 
+### Plugins
+
 You can drop Spigot compatible plugins (which include many Bukkit plugins) into the ```plugins``` directory in your data directory and then restart the server.
 
 Plugins: [https://www.spigotmc.org/resources/](https://www.spigotmc.org/resources/)
+
+Some Suggestions for starters:
+
+* EssentialsX: [https://www.spigotmc.org/resources/essentialsx.9089/](https://www.spigotmc.org/resources/essentialsx.9089/)
+* Send commands to the Minecraft Server Console: [https://www.spigotmc.org/resources/console-sender.14157/](https://www.spigotmc.org/resources/console-sender.14157/)
 
 ## Configuration
 
