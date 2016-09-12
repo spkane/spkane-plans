@@ -1,12 +1,22 @@
 # Minecraft Server Vanilla
 
-This is a vanilla Minecraft server (https://minecraft.net/).
+This is a vanilla Minecraft server [https://minecraft.net/](https://minecraft.net/).
 
+## Building
 
 ```
 hab studio enter
 build
+hab pkg export docker spkane/minecraft_server
+exit
+```
+
+## First Run
+
+```
 hab start spkane/minecraft_server
+
+# DATA DIR=/hab/svc/minecraft_server/data
 
 # By changing the setting below to true you are indicating your agreement to
 # the Minecraft EULA (https://account.mojang.com/documents/minecraft_eula).
@@ -17,19 +27,76 @@ echo 'accept_eula = true' | hab config apply --peer 172.17.0.2 minecraft_server.
 or
 
 ```
-hab studio enter
-build
-hab pkg export docker spkane/minecraft_server
-exit
-
 mkdir -p ${HOME}/mc/data
 
-# By changing the setting below to true you are indicating your agreement to
-# the Minecraft EULA (https://account.mojang.com/documents/minecraft_eula).
-
-docker run -e HAB_MINECRAFT_SERVER='accept_eula=true' -p 25565:25565 -v ${HOME}/mc/data:/hab/svc/minecraft_server/data spkane/minecraft_server
-
-# OR copy and edit the default.toml and try this...
+# Copy and edit the minecraft_server.toml below and try this...
 
 docker run -e HAB_MINECRAFT_SERVER="$(cat ~/habitat/minecraft_server.toml)" -p 25565:25565 -v ${HOME}/mc/data:/hab/svc/minecraft_server/data spkane/minecraft_server
 ```
+
+## Your Data
+
+You data location can vary, but based on the Docker example above, it would be in ```${HOME}/mc/data```. If you are not using a container, the data will be in ```/hab/svc/minecraft_server/data```.
+
+## Configuration
+
+At the moment Habitat only controls/overwrites ```eula.txt```, ```server.properties```, and ```ops.json```.
+
+You can change anything else by hand. This may change.
+
+## Example minecraft_server.toml
+
+*Note*: At a minimum you need to change ```accept_eula``` to ```true``` and change ```usernames``` under ```[ops]``` to include only your username, and trusted friends.
+
+By changing the ```accept_eula``` setting below to ```true``` you are indicating your agreement to the Minecraft EULA [https://account.mojang.com/documents/minecraft_eula](https://account.mojang.com/documents/minecraft_eula).
+
+```
+java_xms = "1024M"
+java_xmx = "2048M"
+accept_eula = false
+
+[server]
+max-tick-time = 60000
+generator-settings = ""
+force-gamemode = false
+allow-nether = true
+gamemode = 0
+enable-query = false
+player-idle-timeout = 0
+difficulty = 1
+spawn-monsters = true
+op-permission-level = 4
+announce-player-achievements = true
+pvp = true
+snooper-enabled = true
+level-type = "DEFAULT"
+hardcore = false
+enable-command-block = false
+max-players = 20
+network-compression-threshold = 256
+resource-pack-sha1 = ""
+max-world-size = 29999984
+server-port = 25565
+server-ip = ""
+spawn-npcs = true
+allow-flight = false
+level-name = "world"
+view-distance = 10
+resource-pack = ""
+spawn-animals = true
+white-list = false
+generate-structures = true
+online-mode = true
+max-build-height = 256
+level-seed = ""
+use-native-transport = true
+enable-rcon = false
+rcon-password = "ch@ng3m3"
+rcon-port = 25575
+motd = "A Minecraft Server running on Chef Habitat (http://habitat.sh/)"
+
+[ops]
+usernames = [ "spkane", "notch" ]
+```
+
+
