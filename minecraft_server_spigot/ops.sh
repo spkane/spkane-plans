@@ -8,11 +8,11 @@
 
 BODY="["
 USERS=( $@ )
-UUID_URL=https://api.mojang.com/users/profiles/minecraft/$1
+UUID_URL=https://api.mojang.com/users/profiles/minecraft
 
 for username in "${USERS[@]}"; do
-  CURL="curl"
-  RESULT=$(${CURL} ${UUID_URL})
+  CURL="curl -s"
+  RESULT=$(${CURL} ${UUID_URL}/${username})
   rawUUID=${RESULT:7:32}
   UUID=${rawUUID:0:8}-${rawUUID:8:4}-${rawUUID:12:4}-${rawUUID:16:4}-${rawUUID:20:12}
   BODY="${BODY}{\"uuid\":\"${UUID}\",\"name\":\"${username}\",\"level\": 4,\"bypassesPlayerLimit\": true},"

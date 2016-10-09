@@ -9,6 +9,8 @@ pkg_build_deps=(core/jre8 core/git core/bash)
 pkg_deps=(core/glibc core/server-jre core/curl core/bash)
 pkg_upstream_url=https://www.spigotmc.org/
 pkg_interpreters=(bin/bash)
+pkg_svc_user=root
+pkg_svc_group=root
 #pkg_expose=(25565)
 
 do_unpack() {
@@ -20,6 +22,7 @@ do_verify() {
 }
 
 do_build() {
+  mkdir -p $(pkg_path_for core/git)/etc 
   $(pkg_path_for core/git)/bin/git config --global core.autocrlf false
   $(pkg_path_for core/jre8)/bin/java -jar ../${pkg_filename} --rev ${pkg_version}
   return $?
