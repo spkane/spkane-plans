@@ -7,14 +7,14 @@ This is a Minecraft Spigot server [http://spigotmc.org/](http://spigotmc.org/).
 Habitat Plan: [https://github.com/spkane/spkane-plans/tree/master/minecraft_server_spigot](https://github.com/spkane/spkane-plans/tree/master/minecraft_server_spigot)
 
 Docker Container:
-[https://hub.docker.com/r/spkane/minecraft/](https://hub.docker.com/r/spkane/minecraft/)
+[https://hub.docker.com/r/spkane/minecraft_spigot/](https://hub.docker.com/r/spkane/minecraft_spigot/)
 
 ## Building
 
 ```
 hab studio enter
 build
-hab pkg export docker spkane/minecraft_server_spigot
+hab pkg export docker spkane/minecraft_spigot
 exit
 ```
 
@@ -40,7 +40,7 @@ mkdir -p ${HOME}/mc/data
 
 # Copy and edit the minecraft_server_spigot.toml below and try this...
 
-docker run -e HAB_MINECRAFT_SERVER_SPIGOT="$(cat ~/habitat/minecraft_server_spigot.toml)" -p 25565:25565 -v ${HOME}/mc/data:/hab/svc/minecraft_server_spigot/data spkane/minecraft_server_spigot
+docker run -e HAB_MINECRAFT_SERVER_SPIGOT="$(cat ~/habitat/minecraft_server_spigot.toml)" -p 25565:25565 -v ${HOME}/mc/data:/hab/svc/minecraft_server_spigot/data spkane/minecraft_spigot
 ```
 
 ## Your Data
