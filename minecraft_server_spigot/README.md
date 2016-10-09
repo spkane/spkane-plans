@@ -14,8 +14,9 @@ Docker Container:
 ```
 hab studio enter
 build
-hab pkg export docker spkane/minecraft_spigot
+hab pkg export docker spkane/minecraft_server_spigot
 exit
+docker tag spkane/minecraft_server_spigot:latest spkane/minecraft_spigot:latest
 ```
 
 *Note*: Sometimes the tests will fail during building. This is likely an instability introduced by the unusual environment we are building in. Re-running the build often, just works.
