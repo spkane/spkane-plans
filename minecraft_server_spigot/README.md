@@ -44,6 +44,16 @@ mkdir -p ${HOME}/mc/data
 docker run -e HAB_MINECRAFT_SERVER_SPIGOT="$(cat ~/habitat/minecraft_server_spigot.toml)" -p 25565:25565 -v ${HOME}/mc/data:/hab/svc/minecraft_server_spigot/data spkane/minecraft_spigot
 ```
 
+## Debugging
+
+For the Docker container, you can try this:
+
+```
+docker run -ti --entrypoint /bin/bash spkane/minecraft_spigot
+```
+
+and then poke around in here: ```/hab/pkgs/spkane/minecraft_server_spigot```
+
 ## Your Data
 
 You data location can vary, but based on the Docker example above, it would be in ```${HOME}/mc/data```. If you are not using a container, the data will be in ```/hab/svc/minecraft_server_spigot/data```.
