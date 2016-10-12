@@ -1,6 +1,8 @@
+accept_eula = false
 java_xms = "1024M"
 java_xmx = "2048M"
-accept_eula = false
+# custom_launcher can be used to extend the jvm settings to launch Minecraft
+#custom_launcher "-javaagent:agent/agent.jar -cp ${APP_HOME}/spigot.jar:agent/agent-api.jar org.bukkit.craftbukkit.Main"
 
 [server]
 max-tick-time = 60000

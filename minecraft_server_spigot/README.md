@@ -82,9 +82,12 @@ You can change anything else by hand. This may change.
 By changing the ```accept_eula``` setting below to ```true``` you are indicating your agreement to the Minecraft EULA [https://account.mojang.com/documents/minecraft_eula](https://account.mojang.com/documents/minecraft_eula).
 
 ```
+accept_eula = false
 java_xms = "1024M"
 java_xmx = "2048M"
 accept_eula = false
+# custom_launcher can be used to extend the jvm settings to launch Minecraft
+#custom_launcher "-javaagent:agent/agent.jar -cp ${APP_HOME}/spigot.jar:agent/agent-api.jar org.bukkit.craftbukkit.Main"
 
 [server]
 max-tick-time = 60000

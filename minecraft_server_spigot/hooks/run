@@ -7,5 +7,11 @@ cp {{pkg.svc_config_path}}/eula.txt {{pkg.svc_data_path}}
 cd {{pkg.svc_data_path}}
 
 echo "DATA DIR={{pkg.svc_data_path}}"
+echo "MINECRAFT JAR=${APP_HOME}/spigot.jar"
 
+{{#if cfg.custom_launcher}}
+${JAVA_HOME}/bin/java -Xms{{cfg.java_xms}} -Xmx{{cfg.java_xmx}} -XX:+UseConcMarkSweepGC {{cfg.custom_launcher}}
+{{else}}
 ${JAVA_HOME}/bin/java -Xms{{cfg.java_xms}} -Xmx{{cfg.java_xmx}} -XX:+UseConcMarkSweepGC -jar ${APP_HOME}/spigot.jar
+{{/if}}
+
