@@ -11,8 +11,10 @@ Docker Container:
 
 ## Building
 
-* This now get autobuilt and uploaded to Docker Hub when things are merged to master.
-  * Below are earlier notes about the build process. They may not be completely accurate at this point.
+* This can now be easily built and uploaded to Docker Hub when things are merged to master via this UI:
+  * https://bldr.habitat.sh/#/pkgs/spkane/minecraft_server_spigot/latest
+  
+* Below are earlier notes about the build process. They may not be completely accurate at this point.
 
 ```
 hab studio enter
