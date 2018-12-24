@@ -11,6 +11,9 @@ Docker Container:
 
 ## Building
 
+* This now get autobuilt and uploaded to Docker Hub when things are merged to master.
+  * Below are earlier notes about the build process. They may not be completely accurate at this point.
+
 ```
 hab studio enter
 build
@@ -47,6 +50,12 @@ docker run -e HAB_MINECRAFT_SERVER_SPIGOT="$(cat ~/habitat/minecraft_server_spig
 ## Debugging
 
 For the Docker container, you can try this:
+
+```
+docker run -ti spkane/minecraft_spigot bash
+```
+
+or
 
 ```
 docker run -ti --entrypoint /bin/bash spkane/minecraft_spigot
