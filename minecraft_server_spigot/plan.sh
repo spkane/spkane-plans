@@ -28,6 +28,11 @@ do_build() {
   return $?
 }
 
+do_prepare()
+{
+    export JAVA_HOME=$(hab pkg path core/jre8)
+}
+
 do_check() {
    return 0
 }

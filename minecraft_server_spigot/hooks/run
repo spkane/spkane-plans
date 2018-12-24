@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export JAVA_HOME=$(hab pkg path core/server-jre)
+export JAVA_HOME=$(hab pkg path core/jre8)
 export APP_HOME=$(hab pkg path spkane/minecraft_server_spigot)
 
 cp {{pkg.svc_config_path}}/eula.txt {{pkg.svc_data_path}}
